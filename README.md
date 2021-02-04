@@ -7,11 +7,11 @@ Webhook Client written in Node.js
 ```bash
 git clone https://github.com/mtripg6666tdr/json2dis-embed.git
 ```
-1. Install required packages
+2. Install required packages
 ```bash
 npm install
 ```
-1. Build
+3. Build
 ```bash
 npm run build
 ```
@@ -29,7 +29,7 @@ A sample json file is [here](request.json)
     }
 }
 ```
-1. Run
+2. Run
 ```bash
 npm start
 ```
