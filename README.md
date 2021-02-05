@@ -2,7 +2,7 @@
 Webhook Client written in Node.js
 
 # Install
-\* Install yourself, or you can use pre-build files placed in Release tab.
+\* You can install yourself, or use pre-built files in Release tab.
 1. Clone this repository
 ```bash
 git clone https://github.com/mtripg6666tdr/json2dis-embed.git
