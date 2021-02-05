@@ -1,0 +1,196 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/request",
+    "definitions": {
+        "request": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "content": {
+                    "$ref": "#/definitions/Content"
+                }
+            },
+            "required": [
+                "content",
+                "url"
+            ],
+            "title": "request"
+        },
+        "Content": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "avatar_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http",
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                },
+                "content": {
+                    "type": "string"
+                },
+                "embeds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Embed"
+                    }
+                }
+            },
+            "title": "Content"
+        },
+        "Embed": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http",
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "color": {
+                    "type": "integer"
+                },
+                "footer": {
+                    "$ref": "#/definitions/Footer"
+                },
+                "image": {
+                    "$ref": "#/definitions/Image"
+                },
+                "thumbnail": {
+                    "$ref": "#/definitions/Image"
+                },
+                "author": {
+                    "$ref": "#/definitions/Author"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Field"
+                    }
+                }
+            },
+            "title": "Embed"
+        },
+        "Author": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http",
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                },
+                "icon_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http",
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                }
+            },
+            "title": "Author"
+        },
+        "Field": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "inline": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name",
+                "value"
+            ],
+            "title": "Field"
+        },
+        "Footer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "icon_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http",
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                }
+            },
+            "title": "Footer"
+        },
+        "Image": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http",
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                }
+            },
+            "required": [
+                "url"
+            ],
+            "title": "Image"
+        }
+    }
+}

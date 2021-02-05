@@ -2,16 +2,17 @@ import http from "https";
 import fs from "fs";
 import { RequestData } from "./RequestData";
 import { isRequestData } from "./RequestData.validator"
+import { Encoding } from "crypto";
 
-//(function(){
-    if(!fs.existsSync("./request.json")){
-        console.warn("Required input ('request.json') was not found. Please place it on current directory.");
+export function sendWebhookRequest(filename:string = "./request.json", charset:Encoding = "utf-8"){
+    if(!fs.existsSync(filename)){
+        console.warn("Required input ('" + filename + "') was not found. Please place it on current directory.");
         process.exit(1);
     }
-    const data = JSON.parse(fs.readFileSync("./request.json", "utf-8")) as RequestData;
+    const data = JSON.parse(fs.readFileSync(filename, charset)) as RequestData;
     const jsonpost = JSON.stringify(data.content);
     if(!isRequestData(data)){
-        console.warn("request.json was not valid file");
+        console.warn(filename + " was not valid file");
         process.exit(1);
     }
     const request = http.request(data.url, res => {
@@ -31,4 +32,4 @@ import { isRequestData } from "./RequestData.validator"
     });
     request.write(jsonpost);
     request.end();
-//})();
+};
